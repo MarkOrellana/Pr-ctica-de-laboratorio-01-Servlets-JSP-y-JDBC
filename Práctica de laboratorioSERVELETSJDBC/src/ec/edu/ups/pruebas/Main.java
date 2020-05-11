@@ -106,7 +106,7 @@ public class Main {
 		Set<Telefono> tels=usuario.getTelefonos();
 		System.out.println(usuario.getNombre());
 		for (Telefono telefono : tels) {
-			System.out.println("----------tel: "+ telefono.getNumero());
+			System.out.println("-Telefonos: "+ telefono.getNumero());
 		}
 	}
 

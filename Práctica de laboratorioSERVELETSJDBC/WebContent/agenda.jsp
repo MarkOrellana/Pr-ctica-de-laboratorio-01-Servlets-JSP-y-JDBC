@@ -1,14 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="/Práctica_de_laboratorioSERVELETSJDBC/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <title>Agenda Telefonica</title>
 </head>
 <body>
 	<c:set var="usuario" value="${requestScope['usuario']}" />
-	<h1>Usuario: ${usuario.nombre} ${usuario.apellido} con Cedula: ${usuario.cedula}</h1>
+	<h1>Usuario: ${usuario.nombre} ${usuario.apellido} #Cedula:
+		${usuario.cedula}</h1>
 
 	<form action="registroTelefonos" method="post"
 		name="formularioTelefonos">
@@ -49,63 +52,29 @@
 
 	</form>
 	<div class="container" style="margin-top: 25px; padding: 10px">
-		<table id="tablax" class="table table-striped table-bordered"
-			style="width: 100%">
-			<thead>
-				<th>NUMERO</th>
-				<th>TIPO</th>
-				<th>OPERADORA</th>
-				<th>ACCIONES</th>
-
-			</thead>
-			<tbody>
+		<h1>Lista Telefonos</h1>
+		<hr>
+		<table class="table table-bordered">
+			<tr>
+				<td class="text-center">NUMERO</td>
+				<td class="text-center">TIPO</td>
+				<td class="text-center">OPERADORA</td>
+				<td colspan=2>ACCIONES<dth>
+			</tr>
 				<c:forEach var="telefonos" items="${usuario.telefonos}">
 					<tr>
-						<td>${telefonos.numero}</td>
-						<td>${telefonos.tipo}</td>
-						<td>${telefonos.operadora}</td>
-						<td><a
-							href="http://localhost:8080/Práctica_de_laboratorioSERVELETSJDBC/BuscarTelefono?id_tel=${telefonos.id_tel}">Modificar</a>
+						<td><c:out value="${telefonos.numero}"/></td>
+						<td><c:out value="${telefonos.tipo}"/></td>
+						<td><c:out value="${telefonos.operadora}"/></td>
+						<td class="text-center"><a class="btn btn-warning btn-sm"
+							href="http://localhost:8080/Práctica_de_laboratorioSERVELETSJDBC/BuscarTelefono?codigo=${telefonos.codigo}">Modificar</a>
 
-							<a
-							href="http://localhost:8080/Práctica_de_laboratorioSERVELETSJDBC/EliminarTelefono?id_tel=${telefonos.id_tel}">Eliminar</a>
+							<a class="btn btn-danger btn-sm"
+							href="http://localhost:8080/Práctica_de_laboratorioSERVELETSJDBC/EliminarTelefono?codigo=${telefonos.codigo}">Eliminar</a>
 						</td>
 					</tr>
 				</c:forEach>
-			</tbody>
 		</table>
 	</div>
-	<script>
-        $(document).ready(function () {
-            $('#tablax').DataTable({
-                language: {
-                    processing: "Tratamiento en curso...",
-                    search: "Buscar&nbsp;:",
-                    lengthMenu: "Agrupar de _MENU_ items",
-                    info: "Mostrando del item _START_ al _END_ de un total de _TOTAL_ items",
-                    infoEmpty: "No existen datos.",
-                    infoFiltered: "(filtrado de _MAX_ elementos en total)",
-                    infoPostFix: "",
-                    loadingRecords: "Cargando...",
-                    zeroRecords: "No se encontraron datos con tu busqueda",
-                    emptyTable: "No hay datos disponibles en la tabla.",
-                    paginate: {
-                        first: "Primero",
-                        previous: "Anterior",
-                        next: "Siguiente",
-                        last: "Ultimo"
-                    },
-                    aria: {
-                        sortAscending: ": active para ordenar la columna en orden ascendente",
-                        sortDescending: ": active para ordenar la columna en orden descendente"
-                    }
-                },
-                scrollY: 400,
-                lengthMenu: [ [10, 25, -1], [10, 25, "All"] ],
-            });
-        });
-    </script>
-
-
 </body>
 </html>

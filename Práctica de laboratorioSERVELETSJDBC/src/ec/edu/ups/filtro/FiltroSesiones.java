@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class FiltroSesiones
  */
-@WebFilter({"/FiltroSesiones","/index.jsp"})
+@WebFilter({"/FiltroSesiones","/index.jsp","/agenda.jsp"})
 //@WebFilter(description = "FILTRO INICIAR SESION", urlPatterns = {"/*"})
 
 //@WebFilter("/FiltroSesiones")
