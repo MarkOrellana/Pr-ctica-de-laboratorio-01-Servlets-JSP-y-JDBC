@@ -50,7 +50,7 @@ public class InicioSesion extends HttpServlet {
 				HttpSession objsesion = request.getSession(true);
 				request.getSession().setAttribute("logueado", objsesion);
 				String url = null;
-				//response.sendRedirect("agenda.jsp");
+				// response.sendRedirect("agenda.jsp");
 				try {
 					request.setAttribute("usuario", logueado);
 
@@ -79,6 +79,32 @@ public class InicioSesion extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		String usuario = request.getParameter("correo");
+		String contrasena = request.getParameter("contrasena");
+		userDao usDao = DAOfactory.getFactory().getUsuarioDAO();
+		List<Usuario> users = usDao.find();
+		Usuario usuariologueado = null;
+		for (Usuario user : users) {
+			if (user.getCorreo().equals(usuario) && user.getContrasena().equals(contrasena)) {
+				System.out.println("USUARIO VALIDADO");
+				usuariologueado = user;
+				HttpSession objsesion = request.getSession(true);
+				request.getSession().setAttribute("logueado", objsesion);
+				String url = null;
+				// response.sendRedirect("agenda.jsp");
+				try {
+					request.setAttribute("usuario", usuariologueado);
+					url = "/agenda.jsp";
+				} catch (Exception e) {
+
+					System.out.println("Error:" + e);
+				}
+				getServletContext().getRequestDispatcher(url).forward(request, response);
+				break;
+			}
+		}
 		// Consultas co=new Consultas();
 		// if(co.auntentificacion(usuario, contrasena)) {
 		// HttpSession objsesion=request.getSession(true);

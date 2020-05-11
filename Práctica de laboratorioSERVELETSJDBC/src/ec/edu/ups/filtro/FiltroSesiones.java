@@ -17,8 +17,9 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class FiltroSesiones
  */
-//@WebFilter({"/FiltroSesiones","/ajendaTelefonica.jsp"})
-@WebFilter(description = "FILTRO INICIAR SESION", urlPatterns = {"/privada/*"})
+@WebFilter({"/FiltroSesiones","/index.jsp"})
+//@WebFilter(description = "FILTRO INICIAR SESION", urlPatterns = {"/*"})
+
 //@WebFilter("/FiltroSesiones")
 public class FiltroSesiones implements Filter {
 
@@ -46,13 +47,13 @@ public class FiltroSesiones implements Filter {
 		HttpServletRequest reqHttp= (HttpServletRequest)request;
 		HttpSession sesion=reqHttp.getSession();
 		System.out.println("FILTRO EN APLICACION ......");
-		 if (sesion.getAttribute("iniciado") !=null) {
+		 if (sesion.getAttribute("logueado") !=null) {
 			 	System.out.println("FILTRO PERMITE ACCESO");
 				chain.doFilter(request, response);
 			}else{
 				System.out.println("FILTRO NO ENCUENTRA SESSION .....");
 				//((HttpServletResponse)response).sendRedirect("/publica/login.jsp");
-				request.getRequestDispatcher("/publica/login.jsp").forward(request, response);
+				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 		
 	}

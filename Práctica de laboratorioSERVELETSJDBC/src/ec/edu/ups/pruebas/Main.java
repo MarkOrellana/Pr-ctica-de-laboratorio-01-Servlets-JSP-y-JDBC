@@ -101,8 +101,8 @@ public class Main {
 //		Telefono tt=telefonoDAO.findbyTelefonoId(5);
 		
 		userDao usuarioDAO=DAOfactory.getFactory().getUsuarioDAO();
-		Usuario usuario= usuarioDAO.findByCorreo("pedro@illaisaca");
-		//Usuario usuario= usuarioDAO.read("3050459621");
+		//Usuario usuario= usuarioDAO.findByCorreo("pedro@illaisaca");
+		Usuario usuario= usuarioDAO.read("0102863693");
 		Set<Telefono> tels=usuario.getTelefonos();
 		System.out.println(usuario.getNombre());
 		for (Telefono telefono : tels) {

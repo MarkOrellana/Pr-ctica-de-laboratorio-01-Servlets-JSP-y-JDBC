@@ -63,7 +63,7 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String>implements us
 		ResultSet rsUsuario=conexionU.query("SELECT * FROM usuario WHERE usu_cedula='"+cedula+"';");
 		try {
 			if (rsUsuario !=null && rsUsuario.next()) {	
-				usuario=new Usuario(rsUsuario.getString("usu_cedula"),rsUsuario.getString("usu_nombre"),rsUsuario.getString("usu_apellido"),rsUsuario.getString("usu_correo"),rsUsuario.getString("usu_contrasenia"));
+				usuario=new Usuario(rsUsuario.getString("usu_cedula"),rsUsuario.getString("usu_nombre"),rsUsuario.getString("usu_apellido"),rsUsuario.getString("usu_correo"),rsUsuario.getString("usu_contrasena"));
 //				usuario.setCedula(rsUsuario.getString("usu_cedula"));
 //				usuario.setNombre(rsUsuario.getString("usu_nombre"));
 //				usuario.setApellido(rsUsuario.getString("usu_apellido"));
