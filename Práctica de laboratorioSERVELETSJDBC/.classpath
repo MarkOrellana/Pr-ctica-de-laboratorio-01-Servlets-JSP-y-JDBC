@@ -14,5 +14,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/danie/Desktop/Its_CraZyKiLlE/JAR/mysql-connector-java-8.0.20.jar"/>
 	<classpathentry kind="lib" path="C:/Users/danie/Desktop/Its_CraZyKiLlE/JAR/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danie/Desktop/Its_CraZyKiLlE/JAR/jstl-api-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danie/Desktop/Its_CraZyKiLlE/JAR/jstl-impl-1.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -12,15 +12,11 @@
 	<c:set var="usuario" value="${requestScope['usuario']}" />
 	<h1>Usuario: ${usuario.nombre} ${usuario.apellido} #Cedula:
 		${usuario.cedula}</h1>
-
-	<form action="registroTelefonos" method="post"
+		<form action="registroTelefonos" method="post"
 		name="formularioTelefonos">
-
-		<input type="hidden" value="${usuario.cedula}" id="cedula"
-			name="cod_cedula">
+		<input type="hidden" value="${usuario.cedula}" name="usu_cedula" >
 		<div class="input-group input-group-lg">
-			<label for="numero">Numero:</label> <span class="input-group-addon"
-				id="sizing-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
+			<label for="numero">Numero:</label> 
 			<input type="text" class="form-control" name="numero"
 				placeholder="Numero" id="txtnumero" aria-describedby="sizing-addon1"
 				required>
@@ -47,13 +43,13 @@
 		<br> <br>
 
 
-		<button class="btn btn-lg btn-primary btn-block btn-signin"
+		<button class="btn btn-primary btn-lg"
 			id="Registrarce" type="submit">Registrar</button>
-
-	</form>
+			</form>
 	<div class="container" style="margin-top: 25px; padding: 10px">
 		<h1>Lista Telefonos</h1>
 		<hr>
+		<a href="http://localhost:8080/Práctica_de_laboratorioSERVELETSJDBC/Agregar.jsp?usu_cedula=${usuario.cedula}" class="btn btn-success btn-lg">Nuevo Telefono</a>
 		<table class="table table-bordered">
 			<tr>
 				<td class="text-center">NUMERO</td>
@@ -76,5 +72,6 @@
 				</c:forEach>
 		</table>
 	</div>
+	<a href="http://localhost:8080/Práctica_de_laboratorioSERVELETSJDBC/CerrarSesion">Cerrar Sesion</a>
 </body>
 </html>

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class FiltroSesiones
  */
-@WebFilter({"/FiltroSesiones","/index.jsp","/agenda.jsp"})
+@WebFilter({"/FiltroSesiones","/index.jsp"})
 //@WebFilter(description = "FILTRO INICIAR SESION", urlPatterns = {"/*"})
 
 //@WebFilter("/FiltroSesiones")
@@ -53,7 +53,7 @@ public class FiltroSesiones implements Filter {
 			}else{
 				System.out.println("FILTRO NO ENCUENTRA SESSION .....");
 				//((HttpServletResponse)response).sendRedirect("/publica/login.jsp");
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				request.getRequestDispatcher("/index.jsp").forward(request, response);
 			}
 		
 	}

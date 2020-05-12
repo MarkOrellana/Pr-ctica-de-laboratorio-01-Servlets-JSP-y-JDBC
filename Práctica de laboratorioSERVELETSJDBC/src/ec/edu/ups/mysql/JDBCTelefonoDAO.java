@@ -55,7 +55,7 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, String> implements
 					usuario.setNombre(rsUsuario.getString("usu_nombre"));
 					usuario.setApellido(rsUsuario.getString("usu_apellido"));
 					usuario.setCorreo(rsUsuario.getString("usu_correo"));
-					usuario.setContrasena(rsUsuario.getString("usu_contrasenia"));
+					usuario.setContrasena(rsUsuario.getString("usu_contrasena"));
 					telefono.setUsuario(usuario);
 
 				}

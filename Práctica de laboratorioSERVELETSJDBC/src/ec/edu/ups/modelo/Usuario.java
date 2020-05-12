@@ -1,14 +1,10 @@
 package ec.edu.ups.modelo;
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int codigous;
 	private String cedula;
 	private String nombre;
 	private String apellido;
@@ -40,14 +36,6 @@ public class Usuario implements Serializable {
 
 	public String getCedula() {
 		return cedula;
-	}
-
-	public int getCodigous() {
-		return codigous;
-	}
-
-	public void setCodigous(int codigous) {
-		this.codigous = codigous;
 	}
 
 	public void setCedula(String cedula) {
