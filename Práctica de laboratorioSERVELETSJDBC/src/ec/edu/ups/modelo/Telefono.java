@@ -6,18 +6,16 @@ public class Telefono implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int codigo;
-	private String numero="";
-	private String tipo="";
-	private String operadora="";
+	private String numero;
+	private String tipo;
+	private String operadora;
 	private Usuario usuario;
 
 	public Telefono() {
 
 	}
 
-	public Telefono(int codigo, String numero, String tipo, String operadora) {
-		super();
-		this.codigo = codigo;
+	public Telefono(String numero, String tipo, String operadora) {
 		this.numero = numero;
 		this.tipo = tipo;
 		this.operadora = operadora;

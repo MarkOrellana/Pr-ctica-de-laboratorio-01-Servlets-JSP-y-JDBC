@@ -52,12 +52,11 @@ public class MyAgenda extends HttpServlet {
         } else {
             ServletContext aplicacion = request.getServletContext();
             userDao userDao = DAOfactory.getFactory().getUsuarioDAO();
-            Usuario user = userDao.findByCorreo(String.valueOf(request.getSession().getAttribute("userID")));
+            Usuario user = userDao.findById(String.valueOf(request.getSession().getAttribute("userID")));
             if (telefono != null) {
                 aplicacion.setAttribute("search", "true");
-                //request.setAttribute("search", "true");
                 telefonoDao phoneDao = DAOfactory.getFactory().getTelefonoDAO();
-                user.setTelefonos(phoneDao.findbyNumber(telefono, user.getCedula()));
+                user.setTelefonos(phoneDao.findByNumber(telefono, user.getCedula()));
             }else{
                 aplicacion.setAttribute("search", "false");
             }

@@ -100,14 +100,14 @@ public class Main {
 //		telefonoDao telefonoDao=DAOfactory.getFactory().getTelefonoDAO();
 //		Telefono tt=telefonoDAO.findbyTelefonoId(5);
 		
-		userDao usuarioDAO=DAOfactory.getFactory().getUsuarioDAO();
-		//Usuario usuario= usuarioDAO.findByCorreo("pedro@illaisaca");
-		Usuario usuario= usuarioDAO.read("0102863693");
-		Set<Telefono> tels=usuario.getTelefonos();
-		System.out.println(usuario.getNombre());
-		for (Telefono telefono : tels) {
-			System.out.println("-Telefonos: "+ telefono.getNumero());
-		}
+//		userDao usuarioDAO=DAOfactory.getFactory().getUsuarioDAO();
+//		//Usuario usuario= usuarioDAO.findByCorreo("pedro@illaisaca");
+//		Usuario usuario= usuarioDAO.read("0102863693");
+//		Set<Telefono> tels=usuario.getTelefonos();
+//		System.out.println(usuario.getNombre());
+//		for (Telefono telefono : tels) {
+//			System.out.println("-Telefonos: "+ telefono.getNumero());
+//		}
 	}
 
 }

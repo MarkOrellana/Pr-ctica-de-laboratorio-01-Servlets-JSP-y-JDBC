@@ -1,5 +1,8 @@
 package ec.edu.ups.modelo;
+
 import java.io.Serializable;
+import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class Usuario implements Serializable {
@@ -10,7 +13,7 @@ public class Usuario implements Serializable {
 	private String apellido;
 	private String correo;
 	private String contrasena;
-	private Set<Telefono> telefonos;
+	private List<Telefono> telefonos;
 	// private List<Telefono> telefonos=new ArrayList<Telefono>();
 
 	public Usuario() {
@@ -26,12 +29,12 @@ public class Usuario implements Serializable {
 		this.contrasena = contrasena;
 	}
 
-	public void setTelefonos(Set<Telefono> telefonos) {
-		this.telefonos = telefonos;
+	public List<Telefono> getTelefonos() {
+		return telefonos;
 	}
 
-	public Set<Telefono> getTelefonos() {
-		return telefonos;
+	public void setTelefonos(List<Telefono> telefonos) {
+		this.telefonos = telefonos;
 	}
 
 	public String getCedula() {
@@ -75,9 +78,30 @@ public class Usuario implements Serializable {
 	}
 
 	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Usuario other = (Usuario) obj;
+		if (!Objects.equals(this.correo, other.correo)) {
+			return false;
+		}
+		if (!Objects.equals(this.contrasena, other.contrasena)) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		return "Usuario [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo
-				+ ", contrasena=" + contrasena + "]";
+				+ ", contrasena=" + contrasena + ", telefonos=" + telefonos + "]";
 	}
 
 }
